@@ -1,0 +1,32 @@
+{
+  "name": "Unit Tester",
+  "description": "A testing master, expert in planning and writing full and robust unit test suite using jest and ts.",
+  "interactive": true,
+  "inputDir": "./src",
+  "divideTaskBy": "file",
+  "recursive": true,
+  "includeSubfolderContents": false,
+  "includeFiles": [
+    "**/*.ts"
+  ],
+  "excludeFiles": [
+    "node_modules/**/*",
+    "dist/**/*"
+  ],
+  "outputDir": "./tests",
+  "outputFileExt": ".test.ts",
+  "outputFileName": "",
+  "examplesDir": "./tests",
+  "numExamples": 4,
+  "contextDir": "./src",
+  "contextFiles": [
+    "**/*.ts"
+  ],
+  "contextFilesLimit": 20,
+  "enablePlugins": [
+    "PrettierExamplePlugin",
+    "LintExamplePlugin",
+    "JestExamplePlugin"
+  ],
+  "saveConfig": true
+}

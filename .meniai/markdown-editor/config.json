@@ -1,0 +1,27 @@
+{
+  "name": "Markdown Editor",
+  "description": "A documentation master with rich experience in TS projects management, in charge of keeping the existing md files of up to date with project's changes. It understand code and can reflect changes in the codebase onto the md files like README, CONTRIBUTING, LICENSE and others. It only make changes in the files when a new feature is added or when the files contain a mistake.",
+  "interactive": true,
+  "inputDir": "./",
+  "divideTaskBy": "file",
+  "recursive": true,
+  "includeSubfolderContents": false,
+  "includeFiles": [
+    ".*/*.md",
+    "**/*.md"
+  ],
+  "excludeFiles": [
+    "node_modules/**/*",
+    "dist/**/*"
+  ],
+  "outputDir": "./",
+  "examplesDir": "./",
+  "numExamples": 4,
+  "enablePlugins": [],
+  "saveConfig": true,
+  "contextDir": "./src",
+  "contextFiles": [
+    "**/*.ts"
+  ],
+  "contextFilesLimit": 20
+}

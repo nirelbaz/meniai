@@ -1,0 +1,84 @@
+{
+  "name": "meniai",
+  "version": "0.1.0",
+  "description": "A CLI tool for automating menial tasks using LLMs",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "start:debug": "DEBUG=MeniAI:* ts-node src/index.ts",
+    "watch": "ts-node-dev --respawn src/index.ts",
+    "watch:debug": "DEBUG=MeniAI:* ts-node-dev --respawn src/index.ts --recursive",
+    "build": "tsc",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
+  },
+  "bin": {
+    "meniai": "dist/index.js"
+  },
+  "keywords": [
+    "AI",
+    "CLI",
+    "Anthropic",
+    "OpenAI",
+    "GitHub",
+    "LLM",
+    "Automation",
+    "AI Agent",
+    "AI Assistant",
+    "Developer Tools",
+    "Code Generation",
+    "Code Refactoring",
+    "Code Improvement",
+    "Code Writing"
+  ],
+  "author": "Nir Elbaz <nirelbaz@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nirelbaz/meniai.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nirelbaz/meniai/issues"
+  },
+  "homepage": "https://github.com/nirelbaz/meniai#readme",
+  "devDependencies": {
+    "@eslint/compat": "^1.1.1",
+    "@eslint/js": "^9.10.0",
+    "@jest/globals": "^29.7.0",
+    "@tsconfig/recommended": "^1.0.7",
+    "@types/debug": "^4.1.12",
+    "@types/jest": "^29.5.12",
+    "@types/micromatch": "^4.0.9",
+    "@types/node": "^22.5.4",
+    "@typescript-eslint/eslint-plugin": "^8.4.0",
+    "@typescript-eslint/parser": "^8.4.0",
+    "eslint-plugin-jest": "^28.8.3",
+    "eslint-plugin-n": "^17.10.2",
+    "eslint-plugin-promise": "^7.1.0",
+    "globals": "^15.9.0",
+    "jest": "^29.7.0",
+    "jest-watch-typeahead": "^2.2.2",
+    "prettier": "^3.3.3",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.4.0"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.27.2",
+    "@inquirer/prompts": "^5.5.0",
+    "axios": "^1.7.7",
+    "chalk": "^4.1.2",
+    "chokidar": "^3.6.0",
+    "commander": "^12.1.0",
+    "debug": "^4.3.7",
+    "dotenv": "^16.4.5",
+    "micromatch": "^4.0.8",
+    "openai": "^4.58.1",
+    "ora": "^8.1.0"
+  }
+}

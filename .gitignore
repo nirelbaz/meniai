@@ -1,0 +1,14 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+
+# Build
+dist
+
+# env
+.env
+
+# misc
+.todo
+.DS_Store

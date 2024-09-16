@@ -1,0 +1,32 @@
+{
+  "name": "Refactor Bot",
+  "description": "A ninja programmer that refactors code",
+  "interactive": true,
+  "inputDir": "./src",
+  "divideTaskBy": "file",
+  "recursive": false,
+  "includeSubfolderContents": false,
+  "includeFiles": [
+    "**/*.js",
+    "**/*.ts"
+  ],
+  "excludeFiles": [
+    "node_modules/**/*",
+    "dist/**/*"
+  ],
+  "outputDir": "./src",
+  "examplesDir": "./",
+  "numExamples": 0,
+  "contextDir": "./src",
+  "contextFiles": [
+    "**/*.ts"
+  ],
+  "contextFilesLimit": 20,
+  "enablePlugins": [
+    "PrettierExamplePlugin",
+    "LintExamplePlugin"
+  ],
+  "saveConfig": true,
+  "publishPr": true,
+  "limit": 1
+}
