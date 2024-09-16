@@ -3,11 +3,10 @@
 ![npm version](https://img.shields.io/npm/v/meniai)
 ![npm downloads](https://img.shields.io/npm/dt/meniai)
 ![license](https://img.shields.io/npm/l/meniai)
-![issues](https://img.shields.io/github/issues/nirelbaz/meniai)
-![pull requests](https://img.shields.io/github/issues-pr/nirelbaz/meniai)
+![GitHub issues](https://img.shields.io/github/issues/nirelbaz/meniai)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/nirelbaz/meniai)
 ![GitHub last commit](https://img.shields.io/github/last-commit/nirelbaz/meniai)
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/nirelbaz/meniai/ci.yml)
-![GitHub package.json version](https://img.shields.io/github/package-json/v/nirelbaz/meniai)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/nirelbaz/meniai/ci.yml?branch=main)
 
 # MeniAI
 
@@ -49,21 +48,17 @@ This flexibility allows developers to streamline their workflows while ensuring 
 
 ## Installation
 
-### Recommended: Install as a Project Dependency
-
-```bash
-npm install --save-dev meniai
-```
-
-This approach ensures consistent behavior across different development environments.
-
-### Alternative: Global Installation
+### Global Installation
 
 ```bash
 npm install -g meniai
 ```
 
-Useful for one-off use or exploration across multiple projects.
+### Install as a Project Dependency
+
+```bash
+npm install --save-dev meniai
+```
 
 ## Getting Started
 
@@ -77,9 +72,11 @@ Useful for one-off use or exploration across multiple projects.
    ```
 
 2. **Create a task-specific bot**:
+
    ```bash
    meniai
    ```
+
    Follow the setup wizard to configure your bot. During this process, you can specify whether the bot should operate in interactive mode by default.
 
 3. **Use your bot**:
@@ -123,17 +120,21 @@ meniai --help
 ## Usage Examples
 
 1. **Create a new bot**:
+
    ```bash
    meniai
    ```
+
    This will start the interactive setup wizard for creating a new bot.
 
 2. **Run a bot in non-interactive mode**:
+
    ```bash
    meniai --name CodeRefactorBot --interactive false
    ```
 
 3. **Refactor code in specific directories**:
+
    ```bash
    meniai --name StyleBot --input-dir ./src --output-dir ./refactored
    ```
@@ -148,6 +149,7 @@ meniai --help
 To enable GitHub pull requests:
 
 1. Set environment variables:
+
    ```
    GITHUB_TOKEN=your_github_token
    GITHUB_OWNER=your_github_username
