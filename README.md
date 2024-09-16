@@ -1,12 +1,10 @@
 ![MeniAI Cover](assets/cover.jpg)
 
 [![npm version](https://img.shields.io/npm/v/meniai.svg)](https://www.npmjs.com/package/meniai)
-[![npm downloads](https://img.shields.io/npm/dm/meniai.svg)](https://www.npmjs.com/package/meniai)
 [![license](https://img.shields.io/npm/l/meniai.svg)](https://github.com/nirelbaz/meniai/blob/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/nirelbaz/meniai.svg)](https://github.com/nirelbaz/meniai/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/nirelbaz/meniai.svg)](https://github.com/nirelbaz/meniai/pulls)
 [![GitHub last commit](https://img.shields.io/github/last-commit/nirelbaz/meniai.svg)](https://github.com/nirelbaz/meniai/commits/main)
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/nirelbaz/meniai/ci.yml?branch=main)](https://github.com/nirelbaz/meniai/actions)
 
 # MeniAI
 
