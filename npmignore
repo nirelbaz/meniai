@@ -1,0 +1,13 @@
+node_modules/
+tests/
+docs/
+src/
+assets/
+plugins/
+.env
+.env.example
+.todo
+.git/
+.github/
+.vscode/
+*.log
