@@ -332,11 +332,11 @@ meniai --name YourBotName --enable-plugins LintExamplePlugin
 
 This will trigger the ESLint plugin to run automatically as part of the bot's task processing workflow, ensuring that files are linted and feedback is provided based on the linting results.
 
-### Recommended Use Case
+## Recommended Use Case
 
 MeniAI is ideal for **quickly creating task-specific bots** that automate repetitive tasks like documentation, unit tests, code analysis, or refactoring. You start by creating a bot through an easy-to-use wizard, work with it interactively on its first tasks to refine its outcomes, and then automate it within your CI/CD pipeline.
 
-#### Example: Automating Storybook Files
+### Example: Automating Storybook Files
 
 1. **Quick Bot Setup**:  
    Run MeniAI without any options to launch the wizard and create a bot to generate Storybook files for your design system components.
