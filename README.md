@@ -334,7 +334,7 @@ This will trigger the ESLint plugin to run automatically as part of the bot's ta
 
 ## Recommended Use Case
 
-MeniAI is ideal for **quickly creating task-specific bots** that automate repetitive tasks like documentation, unit tests, code analysis, or refactoring. You start by creating a bot through an easy-to-use wizard, work with it interactively on its first tasks to refine its outcomes, and then automate it within your CI/CD pipeline.
+MeniAI is ideal for quickly creating task-specific bots that automate repetitive tasks like documentation, unit tests, code analysis, or refactoring. You start by creating a bot through an easy-to-use wizard, work with it interactively on its first tasks to refine its outcomes, and then automate it within your CI/CD pipeline.
 
 ### Example: Automating Storybook Files
 
@@ -374,19 +374,19 @@ MeniAI is ideal for **quickly creating task-specific bots** that automate repeti
 
        steps:
          - name: Checkout code
-           uses: actions/checkout@v2
+           uses: actions/checkout@v3
 
          - name: Set up Node.js
-           uses: actions/setup-node@v2
+           uses: actions/setup-node@v3
            with:
-             node-version: '16'
+             node-version: '20'
 
          - name: Install dependencies
            run: npm install
 
          - name: Run MeniAI to update Storybook
            run: |
-             npm run meniai -- --name StorybookBot --no-interactive --publish-pr
+             npm run meniai --name StorybookBot --no-interactive --publish-pr
    ```
 
 This workflow will automatically trigger whenever changes are pushed to the design system components, allowing MeniAI to regenerate Storybook files, and open a pull request for review. This ensures your Storybook stays current without manual updates, streamlining the process of keeping your documentation in sync with the design system.
