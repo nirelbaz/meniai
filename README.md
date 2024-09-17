@@ -17,8 +17,10 @@
 - [Installation](#installation)
 - [Getting Started](#getting-started)
 - [Configuration](#configuration)
-- [Usage Examples](#usage-examples)
+- [Command Options Documentation](#command-options-documentation)
 - [GitHub Integration](#github-integration)
+- [Plugin System](#plugin-system)
+- [Recommended Use Case](#recommended-use-case)
 - [Contributing](#contributing)
 - [License](#license)
 - [Support](#support)
@@ -79,7 +81,7 @@ npm install --save-dev meniai
    Follow the setup wizard to configure your first bot.
 
 3. **Use your bot in interactive mode**:  
-   Run your bot interactively to refine its output, where you’ll be prompted to review and adjust each task:
+   Run your bot interactively to refine its output, where you'll be prompted to review and adjust each task:
 
    ```bash
    meniai --name YourBotName [options]
@@ -92,7 +94,7 @@ npm install --save-dev meniai
    meniai --name YourBotName --no-interactive --publish-pr [options]
    ```
 
-   This will run the bot automatically, process all tasks, and create a pull request with the changes. It’s ideal for running MeniAI in environments where user input is not available, such as automated CI/CD pipelines.
+   This will run the bot automatically, process all tasks, and create a pull request with the changes. It's ideal for running MeniAI in environments where user input is not available, such as automated CI/CD pipelines.
 
 ## Configuration
 
@@ -246,7 +248,7 @@ The **autoFeedback** hook is particularly useful when running MeniAI in an autom
 
 ### Example Plugin: ESLint Integration
 
-Here’s an example of a plugin that integrates **ESLint** to automatically lint files during task processing. This plugin uses the `autoFeedback` hook to run ESLint on output files and provide feedback to the LLM:
+Here's an example of a plugin that integrates **ESLint** to automatically lint files during task processing. This plugin uses the `autoFeedback` hook to run ESLint on output files and provide feedback to the LLM:
 
 ```js
 import util from 'util';
@@ -328,9 +330,9 @@ To run the bot with the ESLint plugin enabled, you can either specify the plugin
 meniai --name YourBotName --enable-plugins LintExamplePlugin
 ```
 
-This will trigger the ESLint plugin to run automatically as part of the bot’s task processing workflow, ensuring that files are linted and feedback is provided based on the linting results.
+This will trigger the ESLint plugin to run automatically as part of the bot's task processing workflow, ensuring that files are linted and feedback is provided based on the linting results.
 
-### Recommended Use Case for MeniAI
+### Recommended Use Case
 
 MeniAI is ideal for **quickly creating task-specific bots** that automate repetitive tasks like documentation, unit tests, code analysis, or refactoring. You start by creating a bot through an easy-to-use wizard, work with it interactively on its first tasks to refine its outcomes, and then automate it within your CI/CD pipeline.
 
@@ -356,7 +358,7 @@ MeniAI is ideal for **quickly creating task-specific bots** that automate repeti
 4. **Keep Storybook Up to Date Using GitHub Actions**:  
    To ensure your Storybook files are always up to date with the latest changes in your design system, you can integrate MeniAI into your GitHub Actions workflow. Every time you push changes to your design system (e.g., adding or updating components), MeniAI can automatically generate or update Storybook files and open a pull request with the changes.
 
-   Here’s an example of how to set this up in your `.github/workflows/ci.yml`:
+   Here's an example of how to set this up in your `.github/workflows/ci.yml`:
 
    ```yaml
    name: Update Storybook Files
