@@ -10,6 +10,8 @@
 
 **MeniAI** is a revolutionary command-line tool that redefines how developers integrate AI into their workflows. Create task-specific AI bots that live alongside your project, evolving and adapting based on user feedback. These bots streamline routine development tasks and can be used locally on demand or fully automated within your CI/CD pipeline.
 
+![MeniAI Demo](https://storage.googleapis.com/meniaipublic/meniai2.gif)
+
 ## Table of Contents
 
 - [Why MeniAI?](#why-meniai)

@@ -6,6 +6,9 @@ node_modules
 # Build
 dist
 
+# Demo
+demo
+
 # env
 .env
 

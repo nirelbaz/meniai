@@ -4,6 +4,7 @@ docs/
 src/
 assets/
 plugins/
+demo/
 .env
 .env.example
 .todo

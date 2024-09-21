@@ -1,6 +1,6 @@
 {
   "name": "meniai",
-  "version": "0.1.8",
+  "version": "1.0.0",
   "description": "A CLI tool for automating menial tasks using LLMs",
   "main": "dist/index.js",
   "type": "module",
@@ -10,7 +10,8 @@
     "watch": "ts-node-dev --respawn src/index.ts",
     "watch:debug": "DEBUG=MeniAI:* ts-node-dev --respawn src/index.ts --recursive",
     "build": "tsc",
-    "build:prod": "tsc --project tsconfig.prod.json",
+    "build:clean": "rm -rf dist",
+    "build:prod": "npm run build:clean && tsc --project tsconfig.prod.json",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch",
     "lint": "eslint",
