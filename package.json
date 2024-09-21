@@ -1,6 +1,6 @@
 {
   "name": "meniai",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A CLI tool for automating menial tasks using LLMs",
   "main": "dist/index.js",
   "type": "module",
