@@ -11,10 +11,26 @@ export const config: Config = {
 } as Config;
 
 export const initializeConfig = async (): Promise<Config> => {
+  await resolveLlmProviderByEnvVariable();
   await integrateUserConfig();
   await integrateBotConfig();
   validateConfig();
   return config;
+};
+
+const resolveLlmProviderByEnvVariable = async (): Promise<void> => {
+  const hasOpenaiApiKey = !!process.env.OPENAI_API_KEY;
+  const hasAnthropicApiKey = !!process.env.ANTHROPIC_API_KEY;
+
+  if (!hasOpenaiApiKey && !hasAnthropicApiKey) {
+    throw new Error('Configuration error: Neither OPENAI_API_KEY nor ANTHROPIC_API_KEY are set. Please set one.');
+  }
+
+  if (hasOpenaiApiKey && !hasAnthropicApiKey) {
+    config.llm = 'openai';
+  } else if (!hasOpenaiApiKey && hasAnthropicApiKey) {
+    config.llm = 'claude';
+  }
 };
 
 const integrateUserConfig = async (): Promise<void> => {

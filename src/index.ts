@@ -9,6 +9,7 @@ import { PluginManager } from './plugins/plugin-manager.js';
 import { llmProvider } from './integrations/llm-provider.js';
 import type { Context } from './types.js';
 import { GitHubIntegration } from './integrations/github.js';
+import chalk from 'chalk';
 
 dotenv.config();
 
@@ -64,6 +65,6 @@ async function main() {
 }
 
 main().catch((error) => {
-  console.error('An error occurred:', error);
+  console.error(chalk.red('An error occurred:'), error);
   process.exit(1);
 });
