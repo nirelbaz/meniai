@@ -38,7 +38,8 @@ export default [
     files: ['**/*.ts'],
     rules: {
       'n/no-missing-import': 'off',
-      'n/no-process-exit': 'off'
+      'n/no-process-exit': 'off',
+      'n/hashbang': 'off'
     }
   }
 ];

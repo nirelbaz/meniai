@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import dotenv from 'dotenv';
 import { ExamplesProvider } from './system-message/examples-provider.js';
 import { TasksProcessor } from './tasks/tasks-processor.js';
