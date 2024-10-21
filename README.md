@@ -8,7 +8,7 @@
 
 # MeniAI
 
-**MeniAI** is a revolutionary command-line tool that redefines how developers integrate AI into their workflows. Create task-specific AI bots that live alongside your project, evolving and adapting based on user feedback. These bots streamline routine development tasks and can be used locally on demand or fully automated within your CI/CD pipeline.
+**MeniAI** is a revolutionary command-line tool that redefines how developers integrate AI into their workflows. Create task-specific AI agents that live alongside your project, evolving and adapting based on user feedback. These agents streamline routine development tasks and can be used locally on demand or fully automated within your CI/CD pipeline.
 
 ![MeniAI Demo](https://storage.googleapis.com/meniaipublic/meniai2.gif)
 
@@ -30,19 +30,19 @@
 
 ## Why MeniAI?
 
-Unlike other AI-powered development tools, MeniAI emphasizes the creation of **project-specific bots** that:
+Unlike other AI-powered development tools, MeniAI emphasizes the creation of **project-specific agents** that:
 
-- **Live within your repository**: Bots evolve alongside your project, adapting to the specific needs of your codebase.
-- **Learn from feedback**: In **interactive mode**, bots receive feedback and improve by incorporating your suggestions.
-- **Flexible operation**: Bots can assist you interactively for development tasks or be automated to run independently when ready (e.g., via GitHub Actions).
+- **Live within your repository**: Agents evolve alongside your project, adapting to the specific needs of your codebase.
+- **Learn from feedback**: In **interactive mode**, agents receive feedback and improve by incorporating your suggestions.
+- **Flexible operation**: Agents can assist you interactively for development tasks or be automated to run independently when ready (e.g., via GitHub Actions).
 
-This flexibility allows developers to streamline their workflows while ensuring bots are tailored to their project's unique needs.
+This flexibility allows developers to streamline their workflows while ensuring agents are tailored to their project's unique needs.
 
 ## Key Features
 
-- **Task-Specific Bots**: Create customizable AI-powered bots that adapt to your project's evolving needs.
-- **Interactive Learning Mode**: Bots learn from user feedback during usage, improving over time.
-- **Optional Automation**: Bots can be integrated into CI/CD pipelines or used on demand as developer tools.
+- **Task-Specific Agents**: Create customizable AI-powered agents that adapt to your project's evolving needs.
+- **Interactive Learning Mode**: Agents learn from user feedback during usage, improving over time.
+- **Optional Automation**: Agents can be integrated into CI/CD pipelines or used on demand as developer tools.
 - **GitHub Integration**: Automate pull requests with AI-generated changes.
 - **Seamless File Handling**: Process multiple files, directories, and tasks with recursive options.
 - **Custom Plugins**: Extend MeniAI with custom plugins for project-specific automation tasks.
@@ -73,30 +73,30 @@ npm install --save-dev meniai
    ANTHROPIC_API_KEY=your_anthropic_api_key
    ```
 
-2. **Create a task-specific bot**:  
-   Run the following command to start the setup wizard and create a new bot:
+2. **Create a task-specific agent**:  
+   Run the following command to start the setup wizard and create a new agent:
 
    ```bash
    meniai
    ```
 
-   Follow the setup wizard to configure your first bot.
+   Follow the setup wizard to configure your first agent.
 
-3. **Use your bot in interactive mode**:  
-   Run your bot interactively to refine its output, where you'll be prompted to review and adjust each task:
-
-   ```bash
-   meniai --name YourBotName [options]
-   ```
-
-4. **Use your bot in non-interactive mode (e.g., in CI/CD pipeline)**:  
-   To run the bot without any prompts, you can use the `--no-interactive` flag. For instance, in a CI/CD pipeline, you might also want to publish a pull request after the bot processes the tasks:
+3. **Use your agent in interactive mode**:  
+   Run your agent interactively to refine its output, where you'll be prompted to review and adjust each task:
 
    ```bash
-   meniai --name YourBotName --no-interactive --publish-pr [options]
+   meniai --name YourAgentName [options]
    ```
 
-   This will run the bot automatically, process all tasks, and create a pull request with the changes. It's ideal for running MeniAI in environments where user input is not available, such as automated CI/CD pipelines.
+4. **Use your agent in non-interactive mode (e.g., in CI/CD pipeline)**:  
+   To run the agent without any prompts, you can use the `--no-interactive` flag. For instance, in a CI/CD pipeline, you might also want to publish a pull request after the agent processes the tasks:
+
+   ```bash
+   meniai --name YourAgentName --no-interactive --publish-pr [options]
+   ```
+
+   This will run the agent automatically, process all tasks, and create a pull request with the changes. It's ideal for running MeniAI in environments where user input is not available, such as automated CI/CD pipelines.
 
 ## Configuration
 
@@ -116,14 +116,14 @@ MeniAI uses two levels of configuration:
    };
    ```
 
-2. **Bot-specific configuration**: Each bot has its own configuration stored in the `.meniai` directory:
+2. **Agent-specific configuration**: Each agent has its own configuration stored in the `.meniai` directory:
 
-   - `.meniai/bot-name/config.json`: Contains bot-specific settings.
-   - `.meniai/bot-name/system-message.txt`: Stores the bot's system message.
+   - `.meniai/agent-name/config.json`: Contains agent-specific settings.
+   - `.meniai/agent-name/system-message.txt`: Stores the agent's system message.
 
-   These files are automatically created and updated when you create or modify a bot.
+   These files are automatically created and updated when you create or modify an agent.
 
-Bot-specific configurations can be overridden via command-line options when running a bot.
+Agent-specific configurations can be overridden via command-line options when running an agent.
 
 For all available options, run:
 
@@ -133,22 +133,22 @@ meniai --help
 
 ## Command Options Documentation
 
-MeniAI provides a variety of command-line options to control bot behavior, file processing, interaction, and feedback. These options can also be set in the **main configuration file** (`meniai.config.js`) or a **bot-specific configuration file** using camelCase.
+MeniAI provides a variety of command-line options to control agent behavior, file processing, interaction, and feedback. These options can also be set in the **main configuration file** (`meniai.config.js`) or an **agent-specific configuration file** using camelCase.
 
 The configuration settings are applied in the following order, with each layer overriding the previous one:
 
 1. **MeniAI default settings**
 2. **Main config file** (`meniai.config.js`)
-3. **Bot-specific config file** (`.meniai/bot-name/config.json`)
+3. **Agent-specific config file** (`.meniai/agent-name/config.json`)
 4. **Command-line options**
 
-This allows for flexible, layered configurations, ensuring that you can define global settings, bot-specific overrides, and one-off command-line adjustments.
+This allows for flexible, layered configurations, ensuring that you can define global settings, agent-specific overrides, and one-off command-line adjustments.
 
 ### General Settings
 
-- `-n, --name <name>`: Name of the bot.
-- `--llm <name>`: Specify the LLM (Large Language Model) to use for bot operations.
-- `--model <model>`: Specify the LLM model to use for bot operations.
+- `-n, --name <name>`: Name of the agent.
+- `--llm <name>`: Specify the LLM (Large Language Model) to use for agent operations.
+- `--model <model>`: Specify the LLM model to use for agent operations.
 - `--meniai-directory <path>`: Path to the MeniAI configuration directory.
 - `-s, --save-config`: Save the current configuration for future use.
 - `--config-path <path>`: Path to the custom configuration file.
@@ -221,14 +221,14 @@ To enable GitHub pull requests:
 
 2. Use the `--publish-pr` option:
    ```bash
-   meniai --name AutoRefactorBot --publish-pr
+   meniai --name AutoRefactorAgent --publish-pr
    ```
 
 This will create a pull request with AI-generated commit messages and descriptions.
 
 ## Plugin System
 
-MeniAI comes with a powerful **plugin system** that allows you to extend its functionality by hooking into various stages of the bot's workflow. Plugins are especially useful when you want to integrate custom tools, perform additional processing, or provide feedback to improve the bot's performance.
+MeniAI comes with a powerful **plugin system** that allows you to extend its functionality by hooking into various stages of the agent's workflow. Plugins are especially useful when you want to integrate custom tools, perform additional processing, or provide feedback to improve the agent's performance.
 
 ### Supported Hooks
 
@@ -246,7 +246,7 @@ MeniAI plugins can tap into the following hooks, allowing you to run custom logi
 - **afterUserFeedback**: Run code after receiving user feedback.
 - **autoFeedback**: This special hook allows the plugin to automatically provide feedback to the LLM after each response, both in interactive and automated modes.
 
-The **autoFeedback** hook is particularly useful when running MeniAI in an automated environment, as it can help guide the bot to refine its outputs. You can control how many iterations the bot should handle feedback with the `--feedback-max-iterations` option.
+The **autoFeedback** hook is particularly useful when running MeniAI in an automated environment, as it can help guide the agent to refine its outputs. You can control how many iterations the agent should handle feedback with the `--feedback-max-iterations` option.
 
 ### Example Plugin: ESLint Integration
 
@@ -316,7 +316,7 @@ export default {
 };
 ```
 
-You can also configure specific plugins for each bot in the bot's configuration file by using the `enablePlugins` field:
+You can also configure specific plugins for each agent in the agent's configuration file by using the `enablePlugins` field:
 
 ```json
 {
@@ -324,37 +324,37 @@ You can also configure specific plugins for each bot in the bot's configuration 
 }
 ```
 
-### Running the Bot with Plugins
+### Running the Agent with Plugins
 
-To run the bot with the ESLint plugin enabled, you can either specify the plugin in the bot's configuration file or pass the `--enable-plugins` flag when running the bot:
+To run the agent with the ESLint plugin enabled, you can either specify the plugin in the agent's configuration file or pass the `--enable-plugins` flag when running the agent:
 
 ```bash
-meniai --name YourBotName --enable-plugins LintExamplePlugin
+meniai --name YourAgentName --enable-plugins LintExamplePlugin
 ```
 
-This will trigger the ESLint plugin to run automatically as part of the bot's task processing workflow, ensuring that files are linted and feedback is provided based on the linting results.
+This will trigger the ESLint plugin to run automatically as part of the agent's task processing workflow, ensuring that files are linted and feedback is provided based on the linting results.
 
 ## Recommended Use Case
 
-MeniAI is ideal for quickly creating task-specific bots that automate repetitive tasks like documentation, unit tests, code analysis, or refactoring. You start by creating a bot through an easy-to-use wizard, work with it interactively on its first tasks to refine its outcomes, and then automate it within your CI/CD pipeline.
+MeniAI is ideal for quickly creating task-specific agents that automate repetitive tasks like documentation, unit tests, code analysis, or refactoring. You start by creating an agent through an easy-to-use wizard, work with it interactively on its first tasks to refine its outcomes, and then automate it within your CI/CD pipeline.
 
 ### Example: Automating Storybook Files
 
-1. **Quick Bot Setup**:  
-   Run MeniAI without any options to launch the wizard and create a bot to generate Storybook files for your design system components.
+1. **Quick Agent Setup**:  
+   Run MeniAI without any options to launch the wizard and create an agent to generate Storybook files for your design system components.
 
    ```bash
    meniai
    ```
 
 2. **Interactive Refinement**:  
-   By default, MeniAI operates in interactive mode. Work with the bot on its first tasks, refining the Storybook files it generates, adjusting the structure and content as needed.
+   By default, MeniAI operates in interactive mode. Work with the agent on its first tasks, refining the Storybook files it generates, adjusting the structure and content as needed.
 
-3. **Automate the Bot**:  
-   Once the bot is refined and its outcomes meet your expectations, you can automate it to run as part of your CI/CD process. The bot can then generate or update files and automatically open pull requests with the changes.
+3. **Automate the Agent**:  
+   Once the agent is refined and its outcomes meet your expectations, you can automate it to run as part of your CI/CD process. The agent can then generate or update files and automatically open pull requests with the changes.
 
    ```bash
-   meniai --name StorybookBot --no-interactive --publish-pr
+   meniai --name StorybookAgent --no-interactive --publish-pr
    ```
 
 4. **Keep Storybook Up to Date Using GitHub Actions**:  
@@ -388,7 +388,7 @@ MeniAI is ideal for quickly creating task-specific bots that automate repetitive
 
          - name: Run MeniAI to update Storybook
            run: |
-             npm run meniai --name StorybookBot --no-interactive --publish-pr
+             npm run meniai --name StorybookAgent --no-interactive --publish-pr
    ```
 
 This workflow will automatically trigger whenever changes are pushed to the design system components, allowing MeniAI to regenerate Storybook files, and open a pull request for review. This ensures your Storybook stays current without manual updates, streamlining the process of keeping your documentation in sync with the design system.
