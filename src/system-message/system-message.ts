@@ -17,7 +17,9 @@ const debug = debugProvider('MeniAI:SystemMessage');
 export interface SystemMessage {
   assistantSystemMessage?: string;
   append: (message: string) => Promise<void>;
-  getSystemMessage: () => string;
+  getFullSystemMessage: () => string;
+  getAppendix: () => string;
+  getOutputFormatGuidance: () => string;
   reset: () => void;
   adjustSystemMessage: (userFeedbacks: string[]) => Promise<void>;
 }
@@ -57,8 +59,16 @@ export class SystemMessageManager implements SystemMessage {
     this.adjustSystemMessageLlm = llmProvider(config.llm, mergePrompt);
   }
 
-  getSystemMessage(): string {
+  getFullSystemMessage(): string {
     return `${this.assistantSystemMessage || ''}\n${parseOutputGuidance()}\n${this.systemMessageAppendix}`;
+  }
+
+  getAppendix(): string {
+    return this.systemMessageAppendix;
+  }
+
+  getOutputFormatGuidance(): string {
+    return parseOutputGuidance();
   }
 
   async append(message: string): Promise<void> {

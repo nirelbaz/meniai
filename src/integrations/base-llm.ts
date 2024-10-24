@@ -27,7 +27,7 @@ export abstract class BaseLLM {
   }
 
   get systemMessage(): string {
-    return typeof this.context === 'string' ? this.context : this.context.systemMessage.getSystemMessage();
+    return typeof this.context === 'string' ? this.context : this.context.systemMessage.getFullSystemMessage();
   }
 
   async sendMessage(messages: string[], printStreamToChat = true, action: string | null = null, retries = 10): Promise<string> {

@@ -6,7 +6,7 @@ import jestExamplePlugin from './plugins/jest-example-plugin.js';
 const config = {
   plugins: [prettierExamplePlugin, lintExamplePlugin, tscExamplePlugin, jestExamplePlugin],
   llm: 'claude',
-  model: 'claude-3-5-sonnet-20240620'
+  model: 'claude-3-5-sonnet-latest'
   // Other configuration options...
 };
 

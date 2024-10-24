@@ -5,7 +5,7 @@ import { BaseLLM } from './base-llm.js';
 import { createAssistantFileStreamHandler } from '../cli/file-stream-handler.js';
 
 const debug = debugProvider('MeniAI:Claude');
-const DEFAULT_MODEL = 'claude-3-5-sonnet-20240620';
+const DEFAULT_MODEL = 'claude-3-5-sonnet-latest';
 
 export class Claude extends BaseLLM {
   private client!: Anthropic;
@@ -29,11 +29,12 @@ export class Claude extends BaseLLM {
     const model = this.config.model || DEFAULT_MODEL;
     const maxTokens = this.getMaxTokens(model);
     const anthropicMessages = this.formatMessages(messages);
+    const system = this.getSystemMessage();
 
     const body = {
       model,
+      system,
       max_tokens: maxTokens,
-      system: this.systemMessage,
       messages: anthropicMessages
     };
 
@@ -42,12 +43,46 @@ export class Claude extends BaseLLM {
     };
 
     if (stream) {
-      const stream = await this.client.messages.stream(body, options);
+      const stream = await this.client.beta.promptCaching.messages.stream(body, options);
       await new Promise((resolve) => setTimeout(resolve, 1000)); // wait for the stream to start so we can see the spinner
       return stream;
     }
 
-    return this.client.messages.create(body, options);
+    return this.client.beta.promptCaching.messages.create(body, options);
+  }
+
+  protected getSystemMessage(): string | Array<Anthropic.Beta.PromptCaching.PromptCachingBetaTextBlockParam> {
+    if (typeof this.context === 'string') {
+      return this.context;
+    }
+
+    const system: Array<Anthropic.Beta.PromptCaching.PromptCachingBetaTextBlockParam> = [];
+    const systemMessage = this.context.systemMessage.assistantSystemMessage || '';
+    const appendix = this.context.systemMessage.getAppendix();
+    const outputFormatGuidance = this.context.systemMessage.getOutputFormatGuidance();
+
+    system.push({
+      text: systemMessage,
+      type: 'text'
+    });
+
+    if (appendix) {
+      system.push({
+        text: appendix,
+        type: 'text',
+        cache_control: { type: 'ephemeral' }
+      });
+    }
+
+    if (outputFormatGuidance) {
+      system.push({
+        text: outputFormatGuidance,
+        type: 'text',
+        cache_control: { type: 'ephemeral' }
+      });
+    }
+
+    return system;
   }
 
   protected async handleChatCompletionResponse(
@@ -67,7 +102,7 @@ export class Claude extends BaseLLM {
   }
 
   private getMaxTokens(model: string): number {
-    return model === 'claude-3-5-sonnet-20240620' ? 8192 : 4096;
+    return model.startsWith('claude-3-5-sonnet') ? 8192 : 4096;
   }
 
   private formatMessages(messages: MessageEntry[]): Anthropic.MessageParam[] {
