@@ -5,6 +5,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/nirelbaz/meniai.svg)](https://github.com/nirelbaz/meniai/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/nirelbaz/meniai.svg)](https://github.com/nirelbaz/meniai/pulls)
 [![GitHub last commit](https://img.shields.io/github/last-commit/nirelbaz/meniai.svg)](https://github.com/nirelbaz/meniai/commits/main)
+![No Maintenance Intended](https://img.shields.io/maintenance/no/2025.svg)
 
 # MeniAI
 
